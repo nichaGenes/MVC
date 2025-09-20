@@ -17,14 +17,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
             .csrf().disable()
             .authorizeRequests()
-                .antMatchers("/api/students/**").permitAll()
-                .antMatchers("/api/subjects/**").permitAll()
-                .antMatchers("/api/registrations/**").permitAll()
-                .antMatchers("/h2-console/**").permitAll()
-                .antMatchers("/swagger-ui/**", "/v2/api-docs/**", "/swagger-ui.html").permitAll()
-                .anyRequest().authenticated()
+                .anyRequest().permitAll()  // Allow all requests without authentication
             .and()
-            .httpBasic();
+            .httpBasic().disable();  // Disable basic auth
         
         // For H2 console
         http.headers().frameOptions().disable();

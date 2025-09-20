@@ -1,0 +1,19 @@
+# Build artifacts
+/target
+
+# IDE files
+/.vscode
+.idea
+*.iml
+
+# Version control
+.git
+.gitignore
+
+# Local scripts and docs not needed in image
+run.bat
+run-simple.bat
+RUNNING_INSTRUCTIONS.md
+README.md
+SimpleCourseRegistrationApp.java
+course-registration.html

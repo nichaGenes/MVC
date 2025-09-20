@@ -164,6 +164,50 @@ src/main/java/com/courseregistration/
    - Swagger UI: `http://localhost:8080/swagger-ui.html`
    - H2 Console: `http://localhost:8080/h2-console`
 
+### Docker Setup 🐳
+
+You can run the application without installing Java or Maven locally by using Docker:
+
+1. **Build the image**
+   ```bash
+   docker build -t course-registration .
+   ```
+
+2. **Start the container**
+   ```bash
+   docker run --rm -p 8080:8080 course-registration
+   ```
+
+3. **Access the services** (same as above)
+   - API Base URL: `http://localhost:8080`
+   - Swagger UI: `http://localhost:8080/swagger-ui.html`
+   - H2 Console: `http://localhost:8080/h2-console`
+
+To rebuild after code changes, rerun the `docker build` command.
+
+### Docker Compose 🧩
+
+Prefer a single command workflow? Use Docker Compose:
+
+1. **Start (builds automatically on first run)**
+   ```bash
+   docker compose up --build
+   ```
+
+2. **Stop** (in another terminal)
+   ```bash
+   docker compose down
+   ```
+
+All endpoints remain available on `http://localhost:8080` while the `app` service is running.
+
+The Compose stack launches a PostgreSQL database (`db` service) alongside the Spring Boot app. Default credentials:
+- Database: `course_registration`
+- User: `course_user`
+- Password: `course_password`
+
+Spring Boot auto-creates and updates the schema through JPA (`ddl-auto=update`) and the `DataInitializer` seeds the sample rows the first time the app starts.
+
 ## Sample Data 📊
 
 The application comes with pre-loaded sample data:
